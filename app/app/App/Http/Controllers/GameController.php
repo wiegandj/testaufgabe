@@ -119,7 +119,7 @@ class GameController extends Controller
      * @return bool
      */
     protected function isAllowedToPlay( GameBoard $game, GamePlayer $player) : bool {
-
+    
         // ##### TASK 6 - No cheating! #################################################################################
         // =============================================================================================================
         // We don't want the player to be able to cheat. They should only be able to make a move if it is their turn.
@@ -132,6 +132,9 @@ class GameController extends Controller
         // Inside of $player you have the player which wants to play now.
         // If he is allowed to play, you have to return true, otherwise you have to return false.
 
+        if ($game->getLastPlayer() === $player)
+            return false;
+            
         return true;
     }
 
@@ -181,7 +184,7 @@ class GameController extends Controller
 
         $game->setSpace( $x, $y, GameMark::Circle ).
 
-        // Saving the game board and output it to the playert
+        // Saving the game board and output it to the player
         $game->save();
         return $this->status_output( $game );
     }
