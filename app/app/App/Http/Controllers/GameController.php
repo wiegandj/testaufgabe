@@ -181,7 +181,7 @@ class GameController extends Controller
 
         $game->setSpace( $x, $y, GameMark::Circle ).
 
-        // Saving the game board and output it to the player
+        // Saving the game board and output it to the playert
         $game->save();
         return $this->status_output( $game );
     }
