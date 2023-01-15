@@ -104,7 +104,7 @@ class GameBoard
     }
 
     /**
-     * Return all rows
+     * Return all columns
      * @return GameBoardSlice[]
      * @throws Exception
      */
